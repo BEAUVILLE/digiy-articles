@@ -1,49 +1,1217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="index,follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Articles DIGIYLYFE — Revue officielle</title>
-<meta name="description" content="Guides terrain DIGIYLYFE : business, clients, visibilité, paiement mobile.">
+  <title>DIGIYLYFE — Ouvrir la route des nouvelles IA</title>
+  <meta name="description" content="DIGIYLYFE ouvre la route des nouvelles IA vers le terrain, donne le volant aux professionnels et défend l’indépendance numérique." />
 
-<meta http-equiv="refresh" content="0; url=https://digiylyfe.net/">
-<link rel="canonical" href="https://digiylyfe.net/">
+  <style>
+    :root{
+      --bg:#f7f4ec;
+      --paper:#fffdf7;
+      --ink:#172017;
+      --muted:#5f6b5f;
+      --green:#123d2b;
+      --green2:#0f2f24;
+      --gold:#d4af37;
+      --gold2:#f1d675;
+      --line:rgba(18,61,43,.14);
+      --shadow:0 18px 50px rgba(0,0,0,.12);
+      --radius:24px;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:system-ui;
-  background:#061b14;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100vh;
-  text-align:center;
-}
-.box{
-  max-width:600px;
-}
-a{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 20px;
-  background:#facc15;
-  color:#000;
-  text-decoration:none;
-  font-weight:700;
-  border-radius:10px;
-}
-</style>
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.20), transparent 34%),
+        linear-gradient(180deg, #f8f2df 0%, var(--bg) 42%, #ffffff 100%);
+      color:var(--ink);
+      line-height:1.75;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .page{
+      width:min(1040px, calc(100% - 28px));
+      margin:0 auto;
+      padding:24px 0 60px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding:12px 0 20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand img{
+      width:52px;
+      height:52px;
+      object-fit:cover;
+      border-radius:16px;
+      box-shadow:0 8px 22px rgba(0,0,0,.14);
+      background:#fff;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.15;
+    }
+
+    .brand-text strong{
+      font-size:1.02rem;
+      letter-spacing:.03em;
+      color:var(--green);
+    }
+
+    .brand-text span{
+      font-size:.84rem;
+      color:var(--muted);
+    }
+
+    .toplinks{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .toplinks a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      color:var(--green);
+      font-weight:800;
+      font-size:.88rem;
+      box-shadow:0 8px 22px rgba(0,0,0,.06);
+    }
+
+    .hero{
+      background:
+        linear-gradient(135deg, rgba(18,61,43,.96), rgba(15,47,36,.96)),
+        radial-gradient(circle at top right, rgba(212,175,55,.30), transparent 38%);
+      color:#fff;
+      border-radius:32px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:240px;
+      height:240px;
+      right:-90px;
+      top:-80px;
+      border-radius:50%;
+      background:rgba(212,175,55,.20);
+      filter:blur(2px);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border:1px solid rgba(241,214,117,.38);
+      background:rgba(241,214,117,.10);
+      color:#ffe99a;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      position:relative;
+      z-index:1;
+    }
+
+    h1{
+      font-size:clamp(2rem, 5vw, 4.25rem);
+      line-height:1.03;
+      margin:18px 0 14px;
+      letter-spacing:-.055em;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1{
+      color:#ffffff !important;
+      text-shadow:0 3px 18px rgba(0,0,0,.28);
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:0;
+      color:rgba(255,255,255,.88) !important;
+      font-size:1.1rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-quote{
+      margin-top:24px;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff7cf;
+      font-weight:900;
+      font-size:1.1rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .digiy-audio-player{
+      margin:24px 0;
+      padding:18px;
+      border-radius:24px;
+      border:1px solid rgba(212,175,55,.34);
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,248,220,.78));
+      box-shadow:0 14px 38px rgba(0,0,0,.10);
+    }
+
+    .digiy-audio-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      margin-bottom:14px;
+    }
+
+    .digiy-audio-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:.78rem;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#6d5200;
+      background:rgba(212,175,55,.18);
+      border:1px solid rgba(212,175,55,.35);
+      border-radius:999px;
+      padding:7px 11px;
+      white-space:nowrap;
+    }
+
+    .digiy-audio-title{
+      font-size:1.15rem;
+      font-weight:950;
+      color:var(--green);
+      line-height:1.2;
+      text-align:right;
+    }
+
+    .digiy-audio-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .digiy-audio-btn{
+      appearance:none;
+      border:none;
+      border-radius:16px;
+      padding:13px 18px;
+      font-size:1rem;
+      font-weight:950;
+      cursor:pointer;
+      transition:transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+      box-shadow:0 10px 22px rgba(0,0,0,.10);
+    }
+
+    .digiy-audio-btn:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
+
+    .digiy-audio-btn.primary{
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      color:#1f1a05;
+    }
+
+    .digiy-audio-btn.secondary{
+      background:var(--green);
+      color:#fff;
+    }
+
+    .digiy-audio-progress-wrap{
+      width:100%;
+      height:11px;
+      background:rgba(18,61,43,.11);
+      border-radius:999px;
+      overflow:hidden;
+      margin-bottom:10px;
+    }
+
+    .digiy-audio-progress{
+      width:0%;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--gold), var(--gold2));
+      transition:width .22s linear;
+    }
+
+    .digiy-audio-status{
+      font-size:.95rem;
+      color:#344236;
+      margin-bottom:7px;
+      line-height:1.5;
+      font-weight:650;
+    }
+
+    .digiy-audio-note{
+      font-size:.9rem;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    .article-card{
+      background:rgba(255,255,255,.84);
+      border:1px solid var(--line);
+      border-radius:32px;
+      padding:34px;
+      box-shadow:0 16px 48px rgba(0,0,0,.08);
+    }
+
+    article h2{
+      font-size:clamp(1.45rem, 3vw, 2.15rem);
+      line-height:1.15;
+      margin:42px 0 14px;
+      color:var(--green);
+      letter-spacing:-.035em;
+    }
+
+    article p{
+      font-size:1.06rem;
+      margin:0 0 17px;
+      color:#1f2a21;
+    }
+
+    article strong{
+      color:#0e3526;
+    }
+
+    .lead{
+      font-size:1.18rem;
+      color:#263428;
+      margin-bottom:22px;
+    }
+
+    .quote-block{
+      margin:28px 0;
+      padding:22px;
+      border-radius:24px;
+      border:1px solid rgba(212,175,55,.32);
+      background:linear-gradient(180deg, rgba(255,248,220,.72), rgba(255,255,255,.72));
+      color:var(--green);
+      font-size:1.16rem;
+      font-weight:950;
+      line-height:1.45;
+    }
+
+    .divider{
+      width:100%;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(18,61,43,.22), transparent);
+      margin:36px 0;
+    }
+
+    .final{
+      margin-top:36px;
+      padding:26px;
+      border-radius:28px;
+      background:linear-gradient(135deg, var(--green), var(--green2));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .final p{
+      color:rgba(255,255,255,.88);
+      margin-bottom:14px;
+    }
+
+    .final strong{
+      color:#ffe99a;
+    }
+
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      padding:30px 0 0;
+      font-size:.92rem;
+    }
+
+    @media (max-width:720px){
+      .page{
+        width:min(100% - 18px, 1040px);
+        padding-top:12px;
+      }
+
+      .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .toplinks{
+        justify-content:flex-start;
+        width:100%;
+      }
+
+      .toplinks a{
+        flex:1 1 auto;
+      }
+
+      .hero{
+        border-radius:24px;
+        padding:24px;
+      }
+
+      .article-card{
+        padding:22px;
+        border-radius:24px;
+      }
+
+      .digiy-audio-top{
+        flex-direction:column;
+      }
+
+      .digiy-audio-title{
+        text-align:left;
+      }
+
+      .digiy-audio-btn{
+        width:100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="box">
-    <h1>📚 Revue DIGIYLYFE</h1>
-    <p>Les articles et guides terrain ont déménagé vers la revue officielle.</p>
-    <a href="https://digiylyfe.net/">Accéder aux articles →</a>
-  </div>
+  <main class="page">
+
+    <header class="topbar">
+      <a class="brand" href="https://digiylyfe.com/">
+        <img src="https://digiylyfe.net/wp-content/uploads/2026/03/digiylyfe_logo_qr.jpeg" alt="Logo DIGIYLYFE" />
+        <span class="brand-text">
+          <strong>DIGIYLYFE</strong>
+          <span>Le terrain garde la main</span>
+        </span>
+      </a>
+
+      <nav class="toplinks" aria-label="Navigation DIGIYLYFE">
+        <a href="https://digiylyfe.com/">← Site</a>
+        <a href="https://pro-espace.digiylyfe.com/">Mon espace</a>
+        <a href="https://tarifs.digiylyfe.com/">Tarifs</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">DIGIYLYFE · Nouvelles IA · Terrain</div>
+      <h1>DIGIYLYFE ouvre la route et donne le volant aux pros</h1>
+      <p>
+        Dans la révolution des nouvelles intelligences artificielles, la vraie question n’est pas seulement
+        qui possède les meilleurs moteurs. La vraie question est : qui rend cette puissance utile aux professionnels
+        du terrain ?
+      </p>
+
+      <div class="hero-quote">
+        Les géants construisent les moteurs. DIGIYLYFE ouvre les routes. Et donne le volant aux pros.
+      </div>
+    </section>
+
+    <section class="digiy-audio-player" id="digiyAudioPlayer" aria-label="Lecteur audio DIGIY">
+      <div class="digiy-audio-top">
+        <div class="digiy-audio-badge">🎧 DIGIY AUDIO</div>
+        <div class="digiy-audio-title">Écouter l’article</div>
+      </div>
+
+      <div class="digiy-audio-actions">
+        <button type="button" class="digiy-audio-btn primary" id="digiyPlayBtn">
+          ▶ Écouter l’article
+        </button>
+        <button type="button" class="digiy-audio-btn secondary" id="digiyStopBtn">
+          ⏹ Stop
+        </button>
+      </div>
+
+      <div class="digiy-audio-progress-wrap" aria-hidden="true">
+        <div class="digiy-audio-progress" id="digiyAudioProgress"></div>
+      </div>
+
+      <div class="digiy-audio-status" id="digiyAudioStatus">
+        Première écoute déjà prête.
+      </div>
+
+      <div class="digiy-audio-note">
+        👉 Écoute DIGIY, puis fais-le circuler.
+      </div>
+    </section>
+
+    <section class="article-card">
+      <article id="digiy-article-content">
+        <p class="lead">
+          Dans la révolution des nouvelles intelligences artificielles, tout semble aller plus vite.
+        </p>
+
+        <p>
+          Les modèles deviennent plus puissants. Les startups lèvent des millions en quelques mois.
+          Les grands fonds financent des équipes avant même que leurs produits soient totalement installés.
+          Le monde technologique court derrière les cerveaux, les moteurs, les algorithmes, les promesses.
+        </p>
+
+        <p>
+          Mais derrière cette course mondiale, une question simple demeure :
+        </p>
+
+        <p>
+          <strong>À qui va réellement servir cette puissance ?</strong>
+        </p>
+
+        <p>
+          Car la technologie seule ne suffit pas. Un moteur, même très puissant, ne change rien s’il ne descend
+          pas dans la vie réelle. Et la vie réelle, c’est le terrain.
+        </p>
+
+        <p>
+          Le chauffeur qui attend une course. Le commerçant qui veut vendre sans perdre sa marge.
+          Le loueur qui veut montrer son logement et bloquer ses dates. L’artisan qui cherche des clients.
+          Le vendeur qui expose ses produits. Le restaurateur qui reçoit ses réservations. Le guide qui fait découvrir
+          son territoire. Le professionnel qui veut travailler, être payé directement, garder son client et comprendre
+          son activité.
+        </p>
+
+        <p>
+          C’est là que DIGIYLYFE se positionne.
+        </p>
+
+        <p>
+          Pas comme une nouvelle prison digitale. Pas comme une plateforme de plus qui capture le passage.
+          Mais comme une route ouverte.
+        </p>
+
+        <div class="quote-block">
+          Les géants construisent les moteurs.<br />
+          DIGIYLYFE ouvre les routes.<br />
+          Et donne le volant aux pros.
+        </div>
+
+        <h2>Le réseau existait déjà</h2>
+
+        <p>
+          Les plateformes n’ont pas inventé le terrain.
+        </p>
+
+        <p>
+          Avant elles, les clients existaient déjà. Les professionnels travaillaient déjà.
+          Les recommandations circulaient déjà. Les logements accueillaient déjà. Les boutiques vendaient déjà.
+          Les chauffeurs transportaient déjà. Les artisans bâtissaient déjà. Les familles, les quartiers,
+          les marchés, les villes et les zones touristiques faisaient déjà vivre l’économie réelle.
+        </p>
+
+        <p>
+          Le réseau était déjà là.
+        </p>
+
+        <p>
+          Ce réseau, ce sont les liens humains, la confiance, les habitudes, les photos, les avis,
+          les appels, les messages, les paiements, les trajets, les réservations, les services rendus.
+        </p>
+
+        <p>
+          Mais les grandes plateformes ont souvent réussi à se placer au milieu de ce passage.
+        </p>
+
+        <p>
+          Elles ont organisé la rencontre entre le client et le professionnel, puis elles ont capté la relation.
+          Elles ont pris la visibilité, la donnée, le classement, le paiement, la règle du jeu,
+          puis une commission sur chaque mouvement.
+        </p>
+
+        <p>
+          Le professionnel a fourni la matière première : son travail, son véhicule, son local, son logement,
+          son stock, son savoir-faire, sa réputation, son accueil, son temps, son investissement.
+        </p>
+
+        <p>
+          La plateforme, elle, a souvent capté la valeur du passage.
+        </p>
+
+        <h2>La commission n’est pas une promesse, c’est un enfermement</h2>
+
+        <p>
+          Au départ, la commission peut ressembler à une opportunité.
+        </p>
+
+        <p>
+          La plateforme dit : <strong>“Je t’apporte des clients.”</strong>
+        </p>
+
+        <p>
+          Mais avec le temps, le professionnel découvre souvent une autre réalité.
+        </p>
+
+        <p>
+          Pour rester visible, il doit rester dans le système. Pour recevoir, il doit passer par l’application.
+          Pour être choisi, il dépend d’un classement. Pour comprendre sa place, il doit accepter un moteur opaque.
+          Et plus il travaille, plus la plateforme prélève.
+        </p>
+
+        <p>
+          La commission devient alors un péage obligatoire sur une route que le professionnel contribue pourtant
+          à faire vivre.
+        </p>
+
+        <p>
+          C’est là que se situe la fracture.
+        </p>
+
+        <div class="quote-block">
+          La commission enferme le mouvement.<br />
+          DIGIYLYFE fournit l’indépendance.
+        </div>
+
+        <h2>Même terrain, mais pas même pacte</h2>
+
+        <p>
+          DIGIYLYFE agit sur le même terrain économique : rendre visible, connecter, réserver, vendre,
+          organiser, faciliter le paiement, aider le professionnel à mieux travailler.
+        </p>
+
+        <p>
+          Mais le pacte est différent.
+        </p>
+
+        <p>
+          Les plateformes disent souvent : <strong>“Travaille dans notre système.”</strong>
+        </p>
+
+        <p>
+          DIGIYLYFE dit : <strong>“Travaille chez toi, avec de meilleurs outils.”</strong>
+        </p>
+
+        <p>
+          Les plateformes veulent garder le client dans leur application. DIGIYLYFE veut amener le client
+          chez le professionnel.
+        </p>
+
+        <p>
+          Les plateformes gardent le passage. DIGIYLYFE rend le passage lisible.
+        </p>
+
+        <p>
+          Les plateformes prélèvent sur chaque mouvement. DIGIYLYFE défend l’abonnement clair,
+          le paiement direct au professionnel et le <strong>0% commission</strong>.
+        </p>
+
+        <p>
+          Ce n’est pas seulement une différence technique. C’est une différence de dignité numérique.
+        </p>
+
+        <h2>Une recette sans secret caché</h2>
+
+        <p>
+          DIGIYLYFE n’a pas de secret caché dans sa recette.
+        </p>
+
+        <p>
+          La logique est simple, claire, visible :
+        </p>
+
+        <p>
+          <strong>
+            0% commission. Paiement direct au professionnel. Présence digitale simple. QR clair.
+            Contact direct. Logiciels métier utiles. Mon argent pour mieux lire ce qui entre et ce qui sort.
+            Le pro garde la main.
+          </strong>
+        </p>
+
+        <p>
+          DIGIYLYFE ne vend pas une dépendance. DIGIYLYFE vend une indépendance organisée.
+        </p>
+
+        <p>
+          Il ne dit pas au professionnel : <strong>“Fais-moi confiance, je décide pour toi.”</strong>
+        </p>
+
+        <p>
+          Il lui dit :
+          <strong>“Voici ta route. Voici ta fiche. Voici ton outil. Voici ton QR. Voici ton lien. Voici ton argent. Voici ta porte ouverte.”</strong>
+        </p>
+
+        <p>
+          Le secret de DIGIYLYFE, c’est justement qu’il n’y a pas de secret : le professionnel voit la route,
+          tient le volant, garde son client et reçoit son argent.
+        </p>
+
+        <h2>Reprendre son indépendance par le réseau existant</h2>
+
+        <p>
+          La force de DIGIYLYFE, c’est de ne pas vouloir reconstruire artificiellement le monde.
+        </p>
+
+        <p>
+          Le réseau existe déjà. Les pros existent déjà. Les clients existent déjà.
+          Les paiements existent déjà. WhatsApp existe déjà. Wave existe déjà. Le téléphone existe déjà.
+          Le bouche-à-oreille existe déjà. La confiance locale existe déjà.
+        </p>
+
+        <p>
+          DIGIYLYFE ne casse pas cette réalité. Il la structure.
+        </p>
+
+        <p>
+          Il ajoute une présence digitale, une fiche claire, un QR, un lien public, un outil métier,
+          un espace de gestion, des notes rapides, une lecture de l’argent, une route plus propre entre
+          le client et le professionnel.
+        </p>
+
+        <p>
+          La mission n’est donc pas de remplacer le terrain. La mission est de l’éclairer.
+        </p>
+
+        <p>
+          <strong>
+            DIGIYLYFE aide le professionnel à reprendre son indépendance par le même réseau qui existe déjà —
+            ce réseau que les plateformes ont longtemps monétisé grâce au travail, aux investissements et à la
+            confiance bâtie par les pros eux-mêmes.
+          </strong>
+        </p>
+
+        <p>
+          Les plateformes se sont enrichies sur le passage. DIGIYLYFE rend le passage au professionnel.
+        </p>
+
+        <h2>Les mille facettes du diamant DIGIYLYFE</h2>
+
+        <p>
+          Le diamant DIGIYLYFE n’est pas seulement technologique.
+        </p>
+
+        <p>
+          Le diamant, ce sont les professionnels du terrain.
+        </p>
+
+        <p>
+          Chaque pro est une facette. Chaque métier est une lumière. Chaque quartier est un reflet.
+          Chaque ville ajoute une couleur. Chaque pays ouvre une nouvelle profondeur.
+        </p>
+
+        <p>
+          DIGIYLYFE commence localement : le quartier, la rue, le marché, le chauffeur connu,
+          la boutique, la maison à louer, le service de proximité.
+        </p>
+
+        <p>
+          Puis il grandit régionalement : les villes, les zones touristiques, les bassins de vie,
+          les routes économiques.
+        </p>
+
+        <p>
+          Puis nationalement : un réseau de professionnels visibles, organisés, reliés,
+          capables de garder leur client et leur paiement direct.
+        </p>
+
+        <p>
+          Puis internationalement, car les travailleurs du terrain sont partout.
+        </p>
+
+        <p>
+          Afrique, Europe, Asie, Amériques : partout, il y a des professionnels qui veulent être trouvés,
+          vendre, réserver, encaisser, transmettre, garder leur dignité et leur indépendance.
+        </p>
+
+        <div class="quote-block">
+          DIGIYLYFE commence dans le quartier, grandit dans la région, traverse les nations,
+          puis parle au monde — parce que partout où il y a un travailleur, il y a une facette du diamant.
+        </div>
+
+        <h2>Robin des Bois des nouvelles IA</h2>
+
+        <p>
+          Dans cette nouvelle économie de l’IA, une partie de la puissance risque encore d’être captée
+          par quelques grandes plateformes fermées.
+        </p>
+
+        <p>
+          Plus de données pour les mêmes. Plus de contrôle pour les mêmes. Plus de dépendance pour les petits.
+        </p>
+
+        <p>
+          DIGIYLYFE choisit une autre voie.
+        </p>
+
+        <p>
+          Non pas combattre la technologie, mais la ramener du côté du terrain.
+          Non pas voler aux géants, mais empêcher que toute la valeur reste enfermée dans les châteaux numériques.
+        </p>
+
+        <div class="quote-block">
+          Les plateformes gardent le château.<br />
+          DIGIYLYFE ouvre les portes du village.
+        </div>
+
+        <p>
+          C’est en ce sens que DIGIYLYFE devient un Robin des Bois digital des nouvelles IA :
+          il prend la puissance du digital et la rend utile aux chauffeurs, commerçants, loueurs,
+          artisans, vendeurs, guides, restaurateurs et pros locaux.
+        </p>
+
+        <h2>Ouvrir l’autoroute et donner le volant</h2>
+
+        <p>
+          Les nouvelles IA sont des moteurs puissants.
+        </p>
+
+        <p>
+          Mais un moteur seul ne suffit pas. Il faut une route. Il faut une direction.
+          Il faut surtout quelqu’un au volant.
+        </p>
+
+        <p>
+          Et pour DIGIYLYFE, celui qui doit tenir le volant, ce n’est pas la plateforme.
+          Ce n’est pas l’algorithme. Ce n’est pas un système opaque qui décide à la place du professionnel.
+        </p>
+
+        <p>
+          C’est le pro.
+        </p>
+
+        <p>
+          DIGIYLYFE ne veut pas conduire à sa place. DIGIYLYFE veut lui donner un tableau de bord simple,
+          une route claire, une visibilité directe, des outils métier et un lien propre avec ses clients.
+        </p>
+
+        <div class="quote-block">
+          DIGIYLYFE ouvre l’autoroute des nouvelles IA vers le terrain, mais donne le volant aux pros.
+        </div>
+
+        <p>
+          Parce que le futur ne doit pas seulement être intelligent. Il doit être juste, lisible et utile.
+        </p>
+
+        <h2>Pourquoi l’abonnement bat la commission</h2>
+
+        <p>
+          Les réseaux numériques se sont souvent construits sur la commission.
+        </p>
+
+        <p>
+          Le principe paraît simple : la plateforme apporte une visibilité, une réservation, une vente,
+          puis prélève une part sur chaque mouvement.
+        </p>
+
+        <p>
+          Mais mathématiquement, cette logique finit souvent par peser sur le professionnel.
+        </p>
+
+        <p>
+          Une commission suit le chiffre d’affaires. Plus le pro travaille, plus il paie.
+          Plus il réussit, plus le prélèvement augmente.
+        </p>
+
+        <p>
+          Avec DIGIYLYFE, la logique est différente.
+        </p>
+
+        <p>
+          Le professionnel ne paie pas parce qu’il a vendu. Il paie parce qu’il dispose d’un outil clair
+          pour être visible, organisé, joignable, payable directement et mieux équipé.
+        </p>
+
+        <div class="quote-block">
+          La commission taxe le mouvement.<br />
+          L’abonnement équipe l’indépendance.
+        </div>
+
+        <p>
+          Sur un mois faible, le professionnel garde un outil accessible. Sur un mois fort,
+          il garde beaucoup plus de valeur.
+        </p>
+
+        <p>
+          Un chauffeur qui enchaîne les courses. Un loueur qui remplit son calendrier.
+          Un commerçant qui vend tous les jours. Un artisan qui reçoit plusieurs demandes.
+          Un restaurateur qui accumule les réservations. Un vendeur qui développe sa boutique.
+        </p>
+
+        <p>
+          Dans tous ces secteurs, la logique reste la même :
+        </p>
+
+        <p>
+          <strong>Plus le pro travaille, plus DIGIYLYFE protège sa marge.</strong>
+        </p>
+
+        <p>
+          C’est pourquoi DIGIYLYFE peut défendre un abonnement modeste : il ne cherche pas à posséder
+          chaque transaction. Il fournit l’outil, ouvre la route, puis laisse la valeur au professionnel.
+        </p>
+
+        <h2>Des tarifs de départ, une valeur qui grandit</h2>
+
+        <p>
+          Les prix applicables aujourd’hui ne sont qu’une base de départ.
+        </p>
+
+        <p>
+          DIGIYLYFE avance avec une logique simple : permettre aux professionnels d’entrer dans le digital
+          sans barrière lourde, avec un abonnement clair et maîtrisé.
+        </p>
+
+        <p>
+          L’objectif n’est pas de prélever sur chaque mouvement. L’objectif est d’équiper le professionnel
+          pour qu’il gagne en visibilité, en organisation, en autonomie et en confiance.
+        </p>
+
+        <p>
+          L’investissement réalisé au départ a vocation à s’amortir dans le temps, parce que l’outil
+          ne disparaît pas après une vente. Il reste, il structure, il accompagne, il ouvre des portes,
+          il aide à garder le lien avec les clients et à mieux lire l’activité.
+        </p>
+
+        <p>
+          Et plus DIGIYLYFE grandira, plus les professionnels qui auront cru tôt à cette route devront être valorisés.
+        </p>
+
+        <p>
+          Car ceux qui entrent au début ne sont pas seulement des abonnés. Ils sont les premières facettes
+          du diamant. Ils participent à construire un réseau vivant : local d’abord, régional ensuite,
+          national demain, international après.
+        </p>
+
+        <p>
+          DIGIYLYFE ne veut pas seulement vendre un outil. DIGIYLYFE veut bâtir une relation durable
+          avec les professionnels du terrain.
+        </p>
+
+        <div class="quote-block">
+          Aujourd’hui, nous ouvrons la route avec des prix accessibles.<br />
+          Demain, nous saurons valoriser ceux qui auront pris le volant dès le départ.
+        </div>
+
+        <h2>La vraie bataille numérique</h2>
+
+        <p>
+          La vraie bataille numérique ne se joue pas seulement dans les laboratoires d’IA ou les levées
+          de fonds spectaculaires.
+        </p>
+
+        <p>
+          Elle se joue dans une question simple :
+        </p>
+
+        <p>
+          <strong>Qui possède la relation entre le client et le professionnel ?</strong>
+        </p>
+
+        <p>
+          Les plateformes veulent garder cette relation dans leur système. DIGIYLYFE veut la rendre
+          au professionnel.
+        </p>
+
+        <p>
+          Les plateformes se sont enrichies sur le passage. DIGIYLYFE rend le passage au pro.
+        </p>
+
+        <p>
+          Les plateformes enferment le mouvement. DIGIYLYFE fournit l’indépendance.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="final">
+          <p>
+            DIGIYLYFE n’est pas seulement une application. <strong>C’est une route.</strong>
+          </p>
+
+          <p>
+            Une route entre l’intelligence artificielle et l’économie réelle.
+            Une route entre le web et WhatsApp. Une route entre le client et le professionnel.
+            Une route entre la visibilité et le paiement direct. Une route entre la technologie mondiale
+            et les cultures locales.
+          </p>
+
+          <p>
+            DIGIYLYFE ne veut pas enfermer les professionnels dans une plateforme.
+            Il veut leur donner une porte ouverte sur le monde.
+          </p>
+
+          <p>
+            Le professionnel garde son nom. Il garde son client. Il garde son argent.
+            Il garde son rythme. Il garde sa voix. Il garde sa dignité. Il garde le volant.
+          </p>
+
+          <p>
+            <strong>
+              DIGIYLYFE, c’est le diamant du terrain : mille métiers, mille routes,
+              mille lumières — et une même promesse tenue par des outils simples :
+              le pro garde la main.
+            </strong>
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      DIGIYLYFE · 0% commission · Paiement direct · Le terrain garde la main
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      const playBtn = document.getElementById('digiyPlayBtn');
+      const stopBtn = document.getElementById('digiyStopBtn');
+      const statusEl = document.getElementById('digiyAudioStatus');
+      const progressEl = document.getElementById('digiyAudioProgress');
+      const articleEl = document.getElementById('digiy-article-content');
+
+      if (!playBtn || !stopBtn || !statusEl || !progressEl || !articleEl) return;
+
+      const synth = window.speechSynthesis;
+
+      let chunks = [];
+      let currentIndex = 0;
+      let isPlaying = false;
+      let utterance = null;
+      let voiceTimer = null;
+
+      function cleanText(text) {
+        return String(text || '')
+          .replace(/\s+/g, ' ')
+          .replace(/←/g, '')
+          .replace(/▶|⏹|🎧|👉/g, '')
+          .trim();
+      }
+
+      function getReadableBlocks() {
+        const selectors = 'h1,h2,h3,p,li,blockquote,.quote-block,.final p';
+        const nodes = Array.from(articleEl.querySelectorAll(selectors));
+
+        return nodes
+          .map(node => cleanText(node.innerText || node.textContent || ''))
+          .filter(Boolean)
+          .filter(text => text.length > 2);
+      }
+
+      function splitLongText(text, maxLength) {
+        const pieces = [];
+        const sentences = text.match(/[^.!?…]+[.!?…]+|[^.!?…]+$/g) || [text];
+        let buffer = '';
+
+        sentences.forEach(sentence => {
+          const cleanSentence = cleanText(sentence);
+          if (!cleanSentence) return;
+
+          if ((buffer + ' ' + cleanSentence).trim().length <= maxLength) {
+            buffer = (buffer + ' ' + cleanSentence).trim();
+          } else {
+            if (buffer) pieces.push(buffer);
+
+            if (cleanSentence.length > maxLength) {
+              for (let i = 0; i < cleanSentence.length; i += maxLength) {
+                pieces.push(cleanSentence.slice(i, i + maxLength));
+              }
+              buffer = '';
+            } else {
+              buffer = cleanSentence;
+            }
+          }
+        });
+
+        if (buffer) pieces.push(buffer);
+        return pieces;
+      }
+
+      function buildChunks() {
+        const blocks = getReadableBlocks();
+        const output = [];
+
+        blocks.forEach(block => {
+          splitLongText(block, 850).forEach(piece => output.push(piece));
+        });
+
+        return output;
+      }
+
+      function pickFrenchVoice() {
+        if (!synth) return null;
+
+        const voices = synth.getVoices ? synth.getVoices() : [];
+        if (!voices || !voices.length) return null;
+
+        const premium = voices.find(v =>
+          /^fr/i.test(v.lang || '') &&
+          /Thomas|Amélie|Amelie|Audrey|Hortense|Marie|Google|Microsoft|Daniel|Paul/i.test(v.name || '')
+        );
+
+        if (premium) return premium;
+
+        const anyFrench = voices.find(v => /^fr/i.test(v.lang || ''));
+        return anyFrench || voices[0] || null;
+      }
+
+      function updateProgress() {
+        if (!chunks.length) {
+          progressEl.style.width = '0%';
+          return;
+        }
+
+        const pct = Math.min(100, Math.round((currentIndex / chunks.length) * 100));
+        progressEl.style.width = pct + '%';
+      }
+
+      function stopSpeech(manual) {
+        isPlaying = false;
+
+        try {
+          if (synth) synth.cancel();
+        } catch (e) {}
+
+        currentIndex = 0;
+        updateProgress();
+
+        playBtn.textContent = '▶ Écouter l’article';
+
+        if (manual) {
+          statusEl.textContent = 'Lecture arrêtée.';
+        }
+      }
+
+      function speakCurrentChunk() {
+        if (!isPlaying || !chunks.length || !synth) return;
+
+        if (currentIndex >= chunks.length) {
+          isPlaying = false;
+          progressEl.style.width = '100%';
+          playBtn.textContent = '▶ Réécouter l’article';
+          statusEl.textContent = 'Lecture terminée.';
+          setTimeout(() => {
+            if (!isPlaying) progressEl.style.width = '0%';
+          }, 1200);
+          currentIndex = 0;
+          return;
+        }
+
+        const text = chunks[currentIndex];
+        utterance = new SpeechSynthesisUtterance(text);
+
+        const voice = pickFrenchVoice();
+        if (voice) {
+          utterance.voice = voice;
+          utterance.lang = voice.lang || 'fr-FR';
+        } else {
+          utterance.lang = 'fr-FR';
+        }
+
+        utterance.rate = 0.88;
+        utterance.pitch = 1.02;
+        utterance.volume = 1;
+
+        utterance.onstart = function () {
+          const pct = Math.min(100, Math.round(((currentIndex + 1) / chunks.length) * 100));
+          statusEl.textContent = 'Lecture en cours... ' + pct + '%';
+          playBtn.textContent = '↻ Reprendre depuis le début';
+          updateProgress();
+        };
+
+        utterance.onend = function () {
+          if (!isPlaying) return;
+          currentIndex += 1;
+          updateProgress();
+          setTimeout(speakCurrentChunk, 120);
+        };
+
+        utterance.onerror = function () {
+          if (!isPlaying) return;
+          currentIndex += 1;
+          updateProgress();
+          setTimeout(speakCurrentChunk, 180);
+        };
+
+        try {
+          synth.speak(utterance);
+        } catch (e) {
+          statusEl.textContent = 'La lecture vocale a rencontré un souci sur ce navigateur.';
+          isPlaying = false;
+        }
+      }
+
+      function startSpeech() {
+        if (!('speechSynthesis' in window)) {
+          statusEl.textContent = "La lecture vocale n'est pas disponible sur ce navigateur.";
+          return;
+        }
+
+        stopSpeech(false);
+
+        chunks = buildChunks();
+
+        if (!chunks.length) {
+          statusEl.textContent = "Impossible de lire : le contenu de l’article est vide.";
+          return;
+        }
+
+        currentIndex = 0;
+        isPlaying = true;
+        progressEl.style.width = '0%';
+
+        setTimeout(speakCurrentChunk, 160);
+      }
+
+      playBtn.addEventListener('click', startSpeech);
+
+      stopBtn.addEventListener('click', function () {
+        stopSpeech(true);
+      });
+
+      window.addEventListener('beforeunload', function () {
+        try {
+          if (synth) synth.cancel();
+        } catch (e) {}
+      });
+
+      if ('speechSynthesis' in window) {
+        const loadVoices = function () {
+          try {
+            window.speechSynthesis.getVoices();
+          } catch (e) {}
+        };
+
+        loadVoices();
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+
+        voiceTimer = setInterval(loadVoices, 500);
+        setTimeout(function () {
+          if (voiceTimer) clearInterval(voiceTimer);
+        }, 4000);
+      }
+    })();
+  </script>
 </body>
 </html>
