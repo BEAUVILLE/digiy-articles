@@ -451,6 +451,35 @@
         width:100%;
       }
     }
+  
+    .digiy-audio-public-help{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .digiy-audio-public-help a{
+      min-height:42px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(18,61,43,.08);
+      border:1px solid rgba(18,61,43,.14);
+      color:var(--green);
+      font-size:.9rem;
+      font-weight:950;
+    }
+
+    @media (max-width:720px){
+      .digiy-audio-public-help{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -503,10 +532,10 @@
 
       <div class="digiy-audio-actions">
         <button type="button" class="digiy-audio-btn primary" id="digiyPlayBtn">
-          ▶ Écouter l’article
+          ▶️ Lecture
         </button>
         <button type="button" class="digiy-audio-btn secondary" id="digiyStopBtn">
-          ⏹ Stop
+          ⏹ Arrêt
         </button>
       </div>
 
@@ -521,6 +550,12 @@
       <div class="digiy-audio-note">
         👉 Écoute DIGIY, puis fais-le circuler.
       </div>
+
+      <div class="digiy-audio-public-help">
+        <a href="https://wa.me/221771342889?text=Bonjour%20DIGIYLYFE%2C%20je%20viens%20de%20l%27article%20sur%20les%20nouvelles%20IA%20et%20je%20veux%20une%20information." target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <a href="sms:+221771342889?body=Bonjour%20DIGIYLYFE%2C%20je%20viens%20de%20l%27article%20sur%20les%20nouvelles%20IA%20et%20je%20veux%20une%20information.">✉️ SMS</a>
+      </div>
+
     </section>
 
     <section class="article-card">
@@ -1084,6 +1119,27 @@
           .trim();
       }
 
+      function preparePronunciation(text) {
+        return String(text || '')
+          .replace(/\bDIGIYLYFE\b/g, 'diji i laïfe')
+          .replace(/\bDIGIY\b/g, 'diji i')
+          .replace(/\bIA\b/g, 'I A')
+          .replace(/\bIA\./g, 'I A.')
+          .replace(/\bQR\b/g, 'Q R')
+          .replace(/\bSMS\b/g, 'S M S')
+          .replace(/\bWhatsApp\b/g, 'Ouatsap')
+          .replace(/\bWave\b/g, 'Ouève')
+          .replace(/\bPAY\b/g, 'paye')
+          .replace(/\bBUILD\b/g, 'artisans tout corps de métiers')
+          .replace(/\bDRIVER\b/g, 'driver')
+          .replace(/\bMARKET\b/g, 'market')
+          .replace(/\bEXPLORE\b/g, 'explore')
+          .replace(/\bJOBS\b/g, 'jobs')
+          .replace(/0\s*%/g, 'zéro pour cent')
+          .replace(/100\s*%/g, 'cent pour cent');
+      }
+
+
       function getReadableBlocks() {
         const selectors = 'h1,h2,h3,p,li,blockquote,.quote-block,.final p';
         const nodes = Array.from(articleEl.querySelectorAll(selectors));
@@ -1171,7 +1227,7 @@
         currentIndex = 0;
         updateProgress();
 
-        playBtn.textContent = '▶ Écouter l’article';
+        playBtn.textContent = '▶️ Lecture';
 
         if (manual) {
           statusEl.textContent = 'Lecture arrêtée.';
@@ -1184,7 +1240,7 @@
         if (currentIndex >= chunks.length) {
           isPlaying = false;
           progressEl.style.width = '100%';
-          playBtn.textContent = '▶ Réécouter l’article';
+          playBtn.textContent = '▶️ Lecture';
           statusEl.textContent = 'Lecture terminée.';
           setTimeout(() => {
             if (!isPlaying) progressEl.style.width = '0%';
@@ -1193,7 +1249,7 @@
           return;
         }
 
-        const text = chunks[currentIndex];
+        const text = preparePronunciation(chunks[currentIndex]);
         utterance = new SpeechSynthesisUtterance(text);
 
         const voice = pickFrenchVoice();
@@ -1211,7 +1267,7 @@
         utterance.onstart = function () {
           const pct = Math.min(100, Math.round(((currentIndex + 1) / chunks.length) * 100));
           statusEl.textContent = 'Lecture en cours... ' + pct + '%';
-          playBtn.textContent = '↻ Reprendre depuis le début';
+          playBtn.textContent = 'Lecture en cours…';
           updateProgress();
         };
 
