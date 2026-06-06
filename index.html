@@ -137,14 +137,15 @@
       background-size:cover;
       background-position:center;
       opacity:0;
-      transform:scale(1.06);
-      transition:opacity 1.4s ease, transform 8s ease;
+      transform:scale(1.08);
+      transition:opacity 1.4s ease;
       filter:saturate(1.08) contrast(1.08);
+      will-change:opacity;
     }
 
     .hero-slide.active{
       opacity:1;
-      transform:scale(1.16);
+      transform:scale(1.08);
     }
 
     .hero-overlay{
@@ -450,6 +451,14 @@
       .digiy-audio-btn{
         width:100%;
       }
+
+      .doctrine-grid{
+        grid-template-columns:1fr;
+      }
+
+      .qr-doctrine{
+        grid-template-columns:1fr;
+      }
     }
   
     .digiy-audio-public-help{
@@ -471,6 +480,105 @@
       color:var(--green);
       font-size:.9rem;
       font-weight:950;
+    }
+
+
+    .doctrine-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin:24px 0 30px;
+    }
+
+    .doctrine-card{
+      border:1px solid rgba(18,61,43,.14);
+      background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,248,220,.56));
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.06);
+    }
+
+    .doctrine-card strong{
+      display:block;
+      color:var(--green);
+      font-size:1.05rem;
+      margin-bottom:7px;
+    }
+
+    .doctrine-card span{
+      display:block;
+      color:#425143;
+      font-size:.94rem;
+      line-height:1.55;
+      font-weight:650;
+    }
+
+    .qr-doctrine{
+      display:grid;
+      grid-template-columns:86px 1fr;
+      gap:16px;
+      align-items:center;
+      margin:28px 0;
+      padding:20px;
+      border-radius:26px;
+      background:linear-gradient(135deg, rgba(18,61,43,.96), rgba(15,47,36,.96));
+      color:#fff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .qr-doctrine::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      top:-50px;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:rgba(212,175,55,.18);
+      pointer-events:none;
+    }
+
+    .qr-mark{
+      width:86px;
+      height:86px;
+      border-radius:22px;
+      background:
+        linear-gradient(90deg,#fff 10px,transparent 10px) 0 0/22px 22px,
+        linear-gradient(#fff 10px,transparent 10px) 0 0/22px 22px,
+        #f7f4ec;
+      border:5px solid #fff;
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
+      position:relative;
+    }
+
+    .qr-mark::before,
+    .qr-mark::after{
+      content:"";
+      position:absolute;
+      width:24px;
+      height:24px;
+      border:6px solid var(--green);
+      background:#fff;
+      border-radius:4px;
+    }
+
+    .qr-mark::before{left:8px;top:8px}
+    .qr-mark::after{right:8px;bottom:8px}
+
+    .qr-doctrine h3{
+      margin:0 0 5px;
+      color:#ffe99a;
+      font-size:1.18rem;
+      line-height:1.2;
+    }
+
+    .qr-doctrine p{
+      margin:0;
+      color:rgba(255,255,255,.88);
+      font-size:.98rem;
+      line-height:1.55;
     }
 
     @media (max-width:720px){
@@ -599,6 +707,45 @@
           Pas comme une nouvelle prison digitale. Pas comme une plateforme de plus qui capture le passage.
           Mais comme une route ouverte.
         </p>
+
+        <h2>Une architecture digitale vivante</h2>
+
+        <p>
+          DIGIYLYFE n’est pas seulement un site, une application ou une vitrine.
+          <strong>C’est une architecture digitale vivante du terrain.</strong>
+        </p>
+
+        <p>
+          Devant, le professionnel trouve la fluidité : la parole, le clic, le QR, le lien, WhatsApp,
+          la fiche publique et le geste simple. Derrière, il y a la force tranquille d’un logiciel puissant :
+          le cerveau du module qui prépare, structure, range, analyse et sécurise.
+        </p>
+
+        <p>
+          DIGIYLYFE ne remplace pas le professionnel. Il lui donne des bras informatiques :
+          des bras pour être visible, répondre, encaisser directement, publier, suivre, organiser son métier
+          et garder sa relation client.
+        </p>
+
+        <div class="doctrine-grid">
+          <div class="doctrine-card">
+            <strong>Simple devant</strong>
+            <span>Le pro parle, clique, partage son lien, montre son QR et valide sans se perdre dans la machine.</span>
+          </div>
+          <div class="doctrine-card">
+            <strong>Puissant derrière</strong>
+            <span>Le cerveau du module prépare l’action, classe les informations et garde la logique métier propre.</span>
+          </div>
+          <div class="doctrine-card">
+            <strong>Humain au centre</strong>
+            <span>L’outil propose, organise et éclaire. Le professionnel reste vivant, debout, maître de sa route.</span>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          Je suis vivant. J’existe. Mon métier existe.<br />
+          DIGIYLYFE donne au pro une adresse, une voix et des bras informatiques.
+        </div>
 
         <div class="quote-block">
           Les géants construisent les moteurs.<br />
@@ -749,6 +896,18 @@
           <strong>“Voici ta route. Voici ta fiche. Voici ton outil. Voici ton QR. Voici ton lien. Voici ton argent. Voici ta porte ouverte.”</strong>
         </p>
 
+        <div class="qr-doctrine">
+          <div class="qr-mark" aria-hidden="true"></div>
+          <div>
+            <h3>Le QR partageable fait circuler l’existence du pro</h3>
+            <p>
+              Le QR DIGIY n’est pas un simple carré technique. Il contient la fiche détaillée du professionnel :
+              nom, métier, zone, photos, offres, WhatsApp, appel, SMS et contact direct. Il peut vivre sur TikTok,
+              YouTube, WhatsApp, les réseaux sociaux, une affiche, une carte, une boutique, un véhicule et le site DIGIYLYFE.
+            </p>
+          </div>
+        </div>
+
         <p>
           Le secret de DIGIYLYFE, c’est justement qu’il n’y a pas de secret : le professionnel voit la route,
           tient le volant, garde son client et reçoit son argent.
@@ -890,6 +1049,12 @@
         <p>
           DIGIYLYFE ne veut pas conduire à sa place. DIGIYLYFE veut lui donner un tableau de bord simple,
           une route claire, une visibilité directe, des outils métier et un lien propre avec ses clients.
+        </p>
+
+        <p>
+          C’est cela, l’architecture DIGIY : <strong>simple devant, puissant derrière, humain au centre.</strong>
+          Le professionnel parle, clique et valide. Le module, lui, travaille en silence : il prépare,
+          range, relie et protège.
         </p>
 
         <div class="quote-block">
@@ -1044,7 +1209,8 @@
 
           <p>
             DIGIYLYFE ne veut pas enfermer les professionnels dans une plateforme.
-            Il veut leur donner une porte ouverte sur le monde.
+            Il veut leur donner une porte ouverte sur le monde, des bras informatiques pour agir,
+            et un cerveau de module pour organiser leur métier sans jamais prendre leur place.
           </p>
 
           <p>
@@ -1110,6 +1276,38 @@
       let isPlaying = false;
       let utterance = null;
       let voiceTimer = null;
+      let digiyWakeLock = null;
+
+      async function keepScreenAwake() {
+        try {
+          if ('wakeLock' in navigator && !digiyWakeLock) {
+            digiyWakeLock = await navigator.wakeLock.request('screen');
+            digiyWakeLock.addEventListener?.('release', function () {
+              digiyWakeLock = null;
+            });
+          }
+        } catch (e) {
+          digiyWakeLock = null;
+        }
+      }
+
+      async function releaseScreenAwake() {
+        try {
+          if (digiyWakeLock) {
+            const lock = digiyWakeLock;
+            digiyWakeLock = null;
+            await lock.release();
+          }
+        } catch (e) {
+          digiyWakeLock = null;
+        }
+      }
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible' && isPlaying) {
+          keepScreenAwake();
+        }
+      });
 
       function cleanText(text) {
         return String(text || '')
@@ -1121,7 +1319,7 @@
 
       function preparePronunciation(text) {
         return String(text || '')
-          .replace(/\bDIGIYLYFE\b/g, 'diji i laïfe')
+          .replace(/\bDIGIYLYFE\b/g, 'diji laïfe')
           .replace(/\bDIGIY\b/g, 'diji i')
           .replace(/\bIA\b/g, 'I A')
           .replace(/\bIA\./g, 'I A.')
@@ -1229,6 +1427,8 @@
 
         playBtn.textContent = '▶️ Lecture';
 
+        releaseScreenAwake();
+
         if (manual) {
           statusEl.textContent = 'Lecture arrêtée.';
         }
@@ -1246,6 +1446,7 @@
             if (!isPlaying) progressEl.style.width = '0%';
           }, 1200);
           currentIndex = 0;
+          releaseScreenAwake();
           return;
         }
 
@@ -1311,6 +1512,7 @@
         currentIndex = 0;
         isPlaying = true;
         progressEl.style.width = '0%';
+        keepScreenAwake();
 
         setTimeout(speakCurrentChunk, 160);
       }
@@ -1325,6 +1527,7 @@
         try {
           if (synth) synth.cancel();
         } catch (e) {}
+        releaseScreenAwake();
       });
 
       if ('speechSynthesis' in window) {
@@ -1346,3 +1549,4 @@
   </script>
 </body>
 </html>
+
